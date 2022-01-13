@@ -1,0 +1,24 @@
+\section{Introduction}
+\label{sec:intro}
+
+%******* Introduction of the Dash technology and Cloud/Fog networks****
+Com o surgimento de populares serviços de streaming de vídeo, atualmente, esses conteúdos multimídia são fornecidos a uma infinidade de heterogêneos dispositivos, de telefones celulares a TVs. Onde uma transmissão de video suave possui diferentes e rigorosos requisitos, como um canal de comunicação de boa qualidade bem como um fluxo constante e ininterrupto de informações~\cite{Immich2018WinNet}. Para acomodar essa demanda, bem como manter uma boa Qualidade de Experiencia~(\textit{Quality of Experience} - QoE) do usuário, grandes players como Microsoft, Apple, Adobe e Netflix adotam o paradigma Transmissão Adaptativa HTTP~(\textit{HTTP Adaptive Streaming} - HAS)~\cite{company:dashs}. Hoje, esse tráfego multimídia HAS corresponde à maior parte dos dados que circulam pela Internet em todo o mundo, com previsão de crescimento nos próximos anos. Eles são decompostos essencialmente em Servidores HTTP para atender essa demanda crescente.
+
+
+% ----------------------------------------------------------------------------
+% What is the current context in mobile network in terms of traffic and users? 
+% ----------------------------------------------------------------------------
+
+%The purpose of these schemes is to ensure a high QoE for users in the presence of fluctuations in bandwidth due to some factors such as network congestion control, signal strength, packet loss and so on. Although these fluctuations are quite common on the public Internet, they can also occur in private networks, such as home networks or even managed networks, where there is usually admission control and different QoS tools are used.
+
+% ----------------------------------------------------------------------------
+% What carries have been doing to address the increasing traffic?
+% ----------------------------------------------------------------------------
+
+Today, traditional video streaming services such as Content Distribution Networks~(CDN) and proxy are designed to deliver multimedia content across large cloud data centers. These cloud systems typically use a set of servers where traffic passes through the core of the network. Also, devices are generally connected by static users and stable internet links~\cite{sitaraman:ACD2014}. In this way, creating these systems partially solves the problems of scalability, availability and interoperability, but at the same time presents new challenges~(for example, higher latency and congestion of the core network)~\cite{tran:wons17,ye:ITC17, taleb:JSAC18}. Several works in the literature highlight fog/edge computing to handle the new video traffic demands that are emerging. Where data centers with less processing and storage capacity can provide services/virtualization closer to the end user. Thus, the edge of the network can provide latency rates that the cloud cannot otherwise achieve~\cite{gamaUCC2019, rosarioSENSORS2018}.
+
+Although many research papers address streaming video services in conjunction with fog/cloud computing, there are aspects that are little addressed in current solutions~\cite{Mouradian2018ComSurv, bentaeb:2018:MSys}. Generally, video streaming architectures seek to lessen the traffic load and improve the QoE of video delivery.
+Such solutions do not take into account the behavior of the video player used by the user, as well as aspects related to user mobility in decision-making mechanisms in multilevel environments.
+In order to address the above issues, this work aims to model video delivery mechanisms in DASH
+to be used in Smart City environments. Such proposed mechanisms will take advantage of emerging technologies related to networks~ (such as edge/cloud computing and microservices), with the objective of helping decision-making of the video streaming service in an urban infrastructure.
+

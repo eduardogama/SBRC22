@@ -1,0 +1,78 @@
+\section{ILP model}
+\label{sec:ilp-solution}
+
+The network is able caching and computing functions on network nodes. We assume a subset $F_{j}$ of $F$ will be stored at node $j$. It should be noted that node $j$ caches the video representations or the highest quality $Q$ of multimedia content so that it can be transcoding to a lower quality. A maximum capacity is defined, the number of encoded bits that can be processed.
+
+% Path Selection and Resource Allocation
+To support video services demanded by users, an optimal path set for all data flows should be found by solving the proposed algorithm. Denote $P_{i}$ as a path set including all candidate path for user $i$ and $P_{ij}$ as a subset of $P_{i}$ including all candidate paths starting from node $j$. A path $p_{ij}^{k} \in P_{i}$ means the $k-th$ path flow $i$ starting from node $j$ and the corresponding data rate of this path is denoted by $r_{ij}^{k}$ if $p_{ij}^{k}$ is selected.
+
+
+%\subsection{Proposed ILP Solution}
+
+To increase the number of attended by a single node, we use a Cost function $c_{ij}$. Where $\lambda_{i}$ is the number of users in group $i$ and $p_{j}$ is the probability that node $j$ can provide a video streaming for a number of users. 
+
+
+\begin{equation}\label{cost_func}
+c_{ij} = \lambda_{i} (1 - p_{j})
+\end{equation}
+
+
+Finally, to improve the whole network utility by maximizing the overall users' QoE, the controller performs traffic engineering to assist content provider selecting in real-time the best peering edge nodes to attend the end-users. Thus, the proposed problem can be formulated as follows.
+\\
+\\
+Minimize
+\begin{equation}
+\sum^{G_u}_{i=1}\sum^{F}_{j=1} c_{ij}x_{ij} + \sum^{F}_{j=1} f_{j} y_{j} \label{eq:maximize}
+\end{equation}
+\\
+\\
+Subject to
+\begin{equation}\label{bound_1}
+\sum^{F}_{j=1} x_{ij} = 1 \text{ } \forall i \in G_u
+\end{equation}
+
+% \vspace{-0.3cm}
+\begin{equation}\label{bound_3}
+x_{ij} * d_{i}( bt_{i}^{max})
+\leq Bw_{p_{ij}^{k}}
+\text{ } \forall i \in G_u, j \in F; p_{ij}^{k} \in P_{ij} 
+\end{equation}
+
+\begin{equation}\label{bound_2}
+\sum^{n}_{i=1} x_{ij} \leq M_{j}y_{j} \text{ } \forall j = 1,...,m
+\end{equation}
+
+% \vspace{-0.3cm}
+% \begin{equation}\label{bound_4}
+% x_{ij} \leq d_{i}y_{j} \text{ } \forall i = 1,...,n; \forall j = 1,...,m, 
+% \end{equation}
+
+% \vspace{-0.8cm}
+\begin{equation}\label{bound_3}
+x_{ij} \geq 0 \text{ } \forall i = 1,...,n; \forall j = 1,...,m
+\end{equation}
+
+% \vspace{-0.5cm}
+\begin{equation}\label{bound_3}
+y_{j} \in \{0,1\} \text{ } \forall j = 1,...,m
+\end{equation}
+
+\begin{algorithm} \caption{Simulation Program to Examine ILP solution}
+\begin{algorithmic}[1]
+
+% \State Initilize $V(s) = 0$, for all $s \in \mathcal S^+$
+
+\State /* Phase 1: Make Decision related to the cache allocation and media content by ILP solution. */
+
+\State /* Phase 2: Redirecting viewers. */
+\For{viewer i with ai = 0}
+    \If{\textit{exists server} $j \in F$ \textit{with} $bd_j \geq b_i$ \textit{and} $s_i \in S_j$} 
+        \State $a_i \gets j$; $bd_j \gets (bd_j - b_i)$;
+    \EndIf 
+\EndFor
+
+\State /* Phase 3: Offload Media Content tasks. */
+
+\Ensure $S_i$
+\end{algorithmic}
+\end{algorithm}
