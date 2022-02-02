@@ -1,0 +1,26 @@
+\section{Trabalhos relacionados}
+% A multi-tier fog content orchestrator mechanism with quality of experience support
+
+Nesta seção, apresentamos uma comparação entre os trabalhos discutidos abaixo.
+As abordagens mencionadas podem diminuir a carga de tráfego e melhorar a QoE.
+No entanto, também existem armadilhas devido ao comportamento egoı́sta totalmente isolado (ou seja, essas soluções estão funcionando independentemente, sem coordenação) dos reprodutores do HAS. Os trabalhos de streaming de video abordam este tipo de problema, no entanto, problemas em cenários da Cidade Inteligente, como mobilidade do usuário, esquemas de cache colaborativo em múltiplos níveis, aumento inesperado de usuários não são considerados na avaliação de satisfação do usuário.
+
+%ES-HAS: An Edge- and SDN-Assisted Framework for HTTP Adaptive Video Streaming
+Em Farahani \textit{et al.}~[1], o artigo propõe aqui um \textit{framework} de otimização para implementar uma estratégia de atendimento ótimo. Em segundo lugar, auxilia os clientes quando eles fazem suas requisições para que o número de requisições que devem ser encaminhadas ao servidor de origem seja minimizado.
+
+%Can Accurate Future Bandwidth Prediction Improve Volumetric Video Streaming Experience?
+Em Bentaleb \textit{et al.}~[2], A solução implementa uma solução de rede neural profunda para prever o conteúdo multimídia a ser consumido, desta forma, o servidor de borda pode solicitar antecipação aos segmentos de vídeo volumétricos na nuvem.
+
+% Multimedia Microservice Placement in Hierarchical Multi-tier Cloud-to-Fog Networks
+In Santos \textit{et al.} [3], seu trabalho apresentou um processo para projetar/criar uma rede hierárquica multicamada Cloud-to-Fog para distribuição de serviços multimídia.
+
+% QoE Ready to Respond: A QoE-aware MEC Selection Scheme for DASH-based Adaptive Video Streaming to Mobile Users
+Em Shi \textit{et al.} [4], este artigo apresenta o QoE Ready to Respond (QoE-R2R), um esquema de seleção MEC com reconhecimento de QoE para streaming de vídeo adaptável móvel baseado em DASH para otimizar a transmissão de vídeo em um ambiente de rede compatível com MEC.
+
+% H2BR: An HTTP/2-based Retransmission Technique to Improve the QoE of Adaptive Video Streaming
+Em Nguyen \textit{et al.} [5], um mecanismo de retransmissão baseado em HTTP/2 é implantado para melhorar a QoE, o throughput percebido pelos usuários é computado enquanto os segmentos são recebidos, o servidor retransmite segmentos que já estão no buffer do cliente, mas em versões de maior qualidade.
+
+%A multi-tier fog content orchestrator mechanism with quality of experience support
+Em Santos \textit{et al.} [6] apresentam um mecanismo de orquestração voltado para a seleção de nós Fog para download de conteúdo de vídeo. O mecanismo recebe feedback do usuário para avaliar o streaming de vídeo dos nós Fog.
+
+Lidar com o gerenciamento de recursos é um requisito essencial em uma Orquestração bem construída. Dentro dos artigos destacados, apenas Shi trata de aspectos diretamente relacionados a questões de rede sem fio, onde o deslocamento de conteúdo para a borda da rede não necessariamente e a conexão entre cache e e bs operam separadamente. No entanto, lidar com uma arquitetura multinível traz aspectos que podem ajudar ou piorar o desempenho da rede se não forem tratados corretamente. Assim, esses desafios exigem a composição e o desenvolvimento de novas orquestrações são abordados, uma arquitetura para a rede de borda multicamadas para lidar com problemas tão rigorosos é apresentada.
