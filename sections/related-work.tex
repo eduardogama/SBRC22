@@ -1,26 +1,38 @@
 \section{Trabalhos relacionados}
 % A multi-tier fog content orchestrator mechanism with quality of experience support
 
-Nesta seção, apresentamos uma comparação entre os trabalhos discutidos abaixo.
-As abordagens mencionadas podem diminuir a carga de tráfego e melhorar a QoE.
-No entanto, também existem armadilhas devido ao comportamento egoı́sta totalmente isolado (ou seja, essas soluções estão funcionando independentemente, sem coordenação) dos reprodutores do HAS. Os trabalhos de streaming de video abordam este tipo de problema, no entanto, problemas em cenários da Cidade Inteligente, como mobilidade do usuário, esquemas de cache colaborativo em múltiplos níveis, aumento inesperado de usuários não são considerados na avaliação de satisfação do usuário.
+Nesta seção, apresentamos uma comparação entre os trabalhos relacionados sobre video streaming na borda.
+De forma geral, as abordagens mencionadas caracterizam-se por diminuir a carga de tráfego e melhorar a QoE.
+No entanto, existem armadilhas devido ao comportamento egoista totalmente isolado (ou seja, essas soluções estão funcionando independentemente, sem coordenação) dos players HAS. Os trabalhos de streaming de video abordam este tipo de problema, no entanto, problemas como mobilidade do usuário, esquemas de cache em múltiplos níveis, aspectos relacionados a seleção de nós na borda não são considerados na avaliação de satisfação do usuário.
 
 %ES-HAS: An Edge- and SDN-Assisted Framework for HTTP Adaptive Video Streaming
-Em Farahani \textit{et al.}~[1], o artigo propõe aqui um \textit{framework} de otimização para implementar uma estratégia de atendimento ótimo. Em segundo lugar, auxilia os clientes quando eles fazem suas requisições para que o número de requisições que devem ser encaminhadas ao servidor de origem seja minimizado.
+Farahani \textit{et al.}~\cite{Farahani} propõe um \textit{framework} de otimização que implementa uma estratégia de atendimento com caches auxiliares. Um Proxy Reverso na borda auxilia os clientes em suas requisições atendidas por cache próximos, desta forma o quantidade de requisições a ser encaminhadas ao servidor de origem é minimizado.
+Essa abordagem é validada por meio de experimentos em larga escala, e o desempenho do framework é comparado a estratégias puramente baseadas em cliente-servidor. Embora a comporação mostre um desempenho próximo na troca de qualidade de resolução, o framework supera em termos de taxa de bits e número de iterrupções em pelo menos 70\% e 40\%, respectivamente.
 
 %Can Accurate Future Bandwidth Prediction Improve Volumetric Video Streaming Experience?
-Em Bentaleb \textit{et al.}~[2], A solução implementa uma solução de rede neural profunda para prever o conteúdo multimídia a ser consumido, desta forma, o servidor de borda pode solicitar antecipação aos segmentos de vídeo volumétricos na nuvem.
+Em Bentaleb \textit{et al.}~\cite{Khan}, uma solução é implementada uma rede neural profunda para prever o conteúdo multimídia a ser consumido, desta forma, o servidor de borda pode solicitar com antecedência aos segmentos de vídeo na nuvem.
+Os resultados experimentais mostram que a solução apresentada é supera os modelos existentes na janela de visualização em um horizonte de 5 milissegundos.
 
 % Multimedia Microservice Placement in Hierarchical Multi-tier Cloud-to-Fog Networks
-In Santos \textit{et al.} [3], seu trabalho apresentou um processo para projetar/criar uma rede hierárquica multicamada Cloud-to-Fog para distribuição de serviços multimídia.
+Em Santos \textit{et al.}~\cite{Santos}, seu trabalho apresenta uma formulação ILP para alocação de serviços de video. Este trabalho projeta um mecanismo para alocação de serviços multimídia em uma rede hierárquica borda/nuvem. Objetivo do algoritmo é minimizar o número de nós da rede levando em consideração a latência da rede. 
+Os resultados obtidos mostraram que o algoritmo consegue seleciona nós mais próximos do usuário para atender suas demandas. Esta decisão melhora os serviços prestados aos usuários finais.
 
 % QoE Ready to Respond: A QoE-aware MEC Selection Scheme for DASH-based Adaptive Video Streaming to Mobile Users
-Em Shi \textit{et al.} [4], este artigo apresenta o QoE Ready to Respond (QoE-R2R), um esquema de seleção MEC com reconhecimento de QoE para streaming de vídeo adaptável móvel baseado em DASH para otimizar a transmissão de vídeo em um ambiente de rede compatível com MEC.
+Em Shi \textit{et al.} [4], 
+% este artigo apresenta o QoE Ready to Respond (QoE-R2R),
+este artigo apresenta dois problemas que ocorrem na conexão entre a borda e usuário, são eles o efeito ping-pong e o problema de seleção de nós na borda. Para solucionar esse problema 
+um esquema de seleção de nós na borda que considera o handover e o estado do cache na borda. 
+Dentro dessa proposta eles mostraram que métodos baseados em taxa de acerto e atraso para seleção de nós na borda podem não ser as métricas mais importantes.
+Em seguida, um método com reconhecimento de QoE é proposto para otimizar diretamente a QoE. Assim, as políticas propostas são executadas com base no QoE, com o objetivo de utilizar o conteúdo em cache no MEC montado na BS servidora o máximo possível.
+%O objetivo desse esquema é  com reconhecimento de QoE para streaming de vídeo adaptável móvel baseado em DASH para otimizar a transmissão de vídeo em um ambiente de rede compatível com MEC.
 
 % H2BR: An HTTP/2-based Retransmission Technique to Improve the QoE of Adaptive Video Streaming
-Em Nguyen \textit{et al.} [5], um mecanismo de retransmissão baseado em HTTP/2 é implantado para melhorar a QoE, o throughput percebido pelos usuários é computado enquanto os segmentos são recebidos, o servidor retransmite segmentos que já estão no buffer do cliente, mas em versões de maior qualidade.
+Em Nguyen \textit{et al.}~\cite{Nguyen2020}, um mecanismo de retransmissão baseado em HTTP/2 é implantado para melhorar a QoE, o throughput percebido pelos usuários é computado enquanto os segmentos são recebidos. Desta forma, o servidor realiza a retransmissão de segmentos para melhorar o QoE durante a variação de condições da rede, desde que seja retransmitido segmentos de melhor qualidade.
+Outra propriedade utilizada do HTTP/2 para reduzir o número de solicitações, é utilizado o recurso de push do servidor, no qual o cliente pode recuperar vários segmentos sequencialmente enviando uma única solicitação. Finalmente, o término do fluxo permite que o cliente encerre segmentos retransmitidos que tenham alta probabilidade de chegar após o tempo de reprodução ou quando o nível do buffer estiver em risco.
 
 %A multi-tier fog content orchestrator mechanism with quality of experience support
-Em Santos \textit{et al.} [6] apresentam um mecanismo de orquestração voltado para a seleção de nós Fog para download de conteúdo de vídeo. O mecanismo recebe feedback do usuário para avaliar o streaming de vídeo dos nós Fog.
+Santos \textit{et al.}~\cite{SANTOS2020} propõe um mecanismo de orquestração chamado Fog4Video, ele é voltado para a seleção de nós Fog para download de conteúdo de vídeo. 
+O Fog4Video recebe feedback do usuário para avaliar o streaming de vídeo dos nós Fog. 
+O mecanismo apresentou uma melhora no bitrate médio conseguiu reduzir custos monetários significativamente.
 
-Lidar com o gerenciamento de recursos é um requisito essencial em uma Orquestração bem construída. Dentro dos artigos destacados, apenas Shi trata de aspectos diretamente relacionados a questões de rede sem fio, onde o deslocamento de conteúdo para a borda da rede não necessariamente e a conexão entre cache e e bs operam separadamente. No entanto, lidar com uma arquitetura multinível traz aspectos que podem ajudar ou piorar o desempenho da rede se não forem tratados corretamente. Assim, esses desafios exigem a composição e o desenvolvimento de novas orquestrações são abordados, uma arquitetura para a rede de borda multicamadas para lidar com problemas tão rigorosos é apresentada.
+Lidar com o gerenciamento de recursos é um requisito essencial em uma Orquestração bem construída. Dentro dos artigos destacados, apenas Shi trata de aspectos diretamente relacionados a questões de rede sem fio, onde o deslocamento de conteúdo para a borda da rede não necessariamente e a conexão entre cache e ap operam separadamente. No entanto, lidar com uma arquitetura multinível traz aspectos que podem ajudar ou piorar o desempenho da rede se não forem tratados corretamente. Assim, esses desafios exigem a composição e o desenvolvimento de novos modelos de orquestrações, uma arquitetura para a rede de borda multicamadas para lidar com problemas tão rigorosos é apresentada.
